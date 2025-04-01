@@ -1,0 +1,66 @@
+/* Grid Pattern */
+#gameArea {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to right, #f0f0f0 1px, transparent 1px),
+                      linear-gradient(to bottom, #f0f0f0 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-color: white;
+    z-index: 0;
+}
+
+/* Neon Cursor Styles */
+.cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: all 0.1s ease;
+    z-index: 1000;
+}
+
+.cursor-name {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    color: #333;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+}
+
+/* Neon glow effects */
+.cursor[data-color="blue"] {
+    background: rgba(0, 123, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5),
+                0 0 20px rgba(0, 123, 255, 0.3),
+                0 0 30px rgba(0, 123, 255, 0.2);
+}
+
+.cursor[data-color="red"] {
+    background: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5),
+                0 0 20px rgba(255, 0, 0, 0.3),
+                0 0 30px rgba(255, 0, 0, 0.2);
+}
+
+.cursor[data-color="green"] {
+    background: rgba(0, 255, 0, 0.8);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5),
+                0 0 20px rgba(0, 255, 0, 0.3),
+                0 0 30px rgba(0, 255, 0, 0.2);
+}
+
+.cursor[data-color="purple"] {
+    background: rgba(128, 0, 128, 0.8);
+    box-shadow: 0 0 10px rgba(128, 0, 128, 0.5),
+                0 0 20px rgba(128, 0, 128, 0.3),
+                0 0 30px rgba(128, 0, 128, 0.2);
+} 
