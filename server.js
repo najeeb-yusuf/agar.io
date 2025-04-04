@@ -23,19 +23,45 @@ const io = new Server(httpServer, {
 });
 
 // Configure Redis with error handling
-const redis = new Redis(process.env.REDIS_URL || 'redis://localhost:6379', {
+const redis = new Redis("redis://default:pQ7Y3LvFGYPkEAgPPpoK71xE6ssaWYq3@redis-10321.c341.af-south-1-1.ec2.redns.redis-cloud.com:10321", {
     retryStrategy: (times) => {
-        const delay = Math.min(times * 50, 2000);
+        const delay = 3000; // Start at 100ms, cap at 3s
         return delay;
+    },
+    maxRetriesPerRequest: 3,
+    connectTimeout: 10000, // 10 seconds
+    commandTimeout: 5000,  // 5 seconds
+    reconnectOnError: (err) => {
+        const targetError = 'READONLY';
+        if (err.message.includes(targetError)) {
+            return true;
+        }
+        return false;
     }
 });
 
 redis.on('error', (error) => {
     console.error('Redis connection error:', error);
+    // Attempt to reconnect
+    redis.connect().catch(err => {
+        console.error('Failed to reconnect to Redis:', err);
+    });
 });
 
 redis.on('connect', () => {
-    console.log('Connected to Redis');
+    console.log('Connected to Redis successfully');
+});
+
+redis.on('ready', () => {
+    console.log('Redis client is ready to accept commands');
+});
+
+redis.on('close', () => {
+    console.log('Redis connection closed');
+});
+
+redis.on('reconnecting', () => {
+    console.log('Attempting to reconnect to Redis...');
 });
 
 app.use(cors());
