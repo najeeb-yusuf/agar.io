@@ -1,20 +1,21 @@
 {
   "name": "agario",
   "version": "1.0.0",
-  "description": "A simple multiplayer game where players can see each other's cursors move in real-time using Supabase for real-time updates.",
-  "main": "script.js",
+  "description": "A simple multiplayer game where players can see each other's cursors move in real-time using Socket.io and Redis for real-time updates.",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@supabase/supabase-js": "^2.39.3"
-  },
-  "devDependencies": {
-    "vite": "^5.1.3"
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "ioredis": "^5.3.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
   }
 }
