@@ -1,7 +1,7 @@
 {
   "name": "agario",
   "version": "1.0.0",
-  "description": "A simple multiplayer game where players can see each other's cursors move in real-time using Socket.io and Redis for real-time updates.",
+  "description": "A simple multiplayer game where players can see each other's cursors move in real-time using Firebase for real-time updates.",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -12,10 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
-    "socket.io": "^4.7.2",
-    "ioredis": "^5.3.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase": "^10.7.0"
   }
 }
