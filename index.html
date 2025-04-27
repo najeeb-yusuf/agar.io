@@ -29,14 +29,14 @@
     </div>
 
     <!-- Game Screen -->
-    <div id="gameScreen" class="hidden fixed inset-0">
-        <div class="absolute top-4 left-4 bg-white/80 p-4 rounded-lg shadow-lg">
-            <p class="text-lg font-semibold">Time: <span id="timer">3:00</span></p>
+    <div id="gameScreen" class="fixed inset-0">
+        <div class="absolute top-4 left-4 bg-white/80 p-4 rounded-lg shadow-lg z-50">
+            <p class="text-lg font-semibold">Time: <span id="timer" class="text-blue-600">3:00</span></p>
             <p class="text-sm text-gray-600">Players: <span id="gamePlayerCount">0</span></p>
         </div>
         <div id="gameArea" class="w-full h-full"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html> 

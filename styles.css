@@ -15,8 +15,6 @@
 /* Neon Cursor Styles */
 .cursor {
     position: absolute;
-    width: 20px;
-    height: 20px;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
@@ -26,14 +24,15 @@
 
 .cursor-name {
     position: absolute;
-    top: 25px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     white-space: nowrap;
     font-size: 12px;
     color: #333;
     text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
-    z-index: 1000;
+    z-index: 1001;
+    margin-top: 20px;
 }
 
 /* Neon glow effects */
@@ -63,4 +62,26 @@
     box-shadow: 0 0 10px rgba(128, 0, 128, 0.5),
                 0 0 20px rgba(128, 0, 128, 0.3),
                 0 0 30px rgba(128, 0, 128, 0.2);
+}
+
+/* Food Styles */
+.food {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+/* Remove individual food colors since all food is red now */
+.food[data-color="blue"],
+.food[data-color="red"],
+.food[data-color="green"],
+.food[data-color="purple"] {
+    background: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
 } 
